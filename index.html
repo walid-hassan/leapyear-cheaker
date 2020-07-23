@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leap Year Cheaker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,800;1,700&display=swap" rel="stylesheet">  
+    <style>
+        body{
+            height: 500px;
+            background-color: aqua;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        h1{
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            text-align: center;
+        }
+        .form {
+            width: 300px;
+            padding: 20px;
+            background: blueviolet;
+            border-radius: 10px;
+            box-shadow: 5px 5px 10px gray;
+        }
+        #year {
+            width: 97%;
+            margin-bottom: 15px;
+            height: 25px;
+            border: none;
+            border-bottom: 3px solid blue;
+            border-radius: 4px;
+            padding-left: 10px;
+        }
+        button {
+            width: 100%;
+            background: #d03636f0;
+            border: none;
+            padding: 8px;
+            color: #fff;
+            font-weight: 700;
+            border-radius: 5px;
+        }
+        .message {
+            background: red;
+            padding: 10px;
+        }
+        #mes1, #mes2 , #mes3{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="inputs" class="form">
+        <h1>Cheak Here</h1>  
+        <input type="text" name="" id="year"><br>
+        <button id="check" type="button">Check Now</button> 
+    </div>
+    <div id="mes1"  class="message ">
+        <h1>It is a leap year.</h1>
+    </div>
+    <div id="mes2" class="message ">
+        <h1>It is not a leap year.</h1>
+    </div>
+    <div id="mes3" class="message ">
+        <h1>Invalid Input.</h1>
+    </div>
+    <script>
+        document.getElementById('check').addEventListener('click', function(){
+            const year = parseInt(document.getElementById('year').value);
+           
+            if(year <= 0 ){
+                document.getElementById('mes3').style.display = 'block';
+                document.getElementById('inputs').style.display = 'none';
+            }
+            else if(year % 4 == 0 && year % 100 != 0 || year % 400 == 0){
+                document.getElementById('mes1').style.display = 'block';
+                document.getElementById('inputs').style.display = 'none';
+            }
+            else{
+                document.getElementById('mes2').style.display = 'block';
+                document.getElementById('inputs').style.display = 'none';
+            }
+            
+        })
+    </script>
+</body>
+</html>
